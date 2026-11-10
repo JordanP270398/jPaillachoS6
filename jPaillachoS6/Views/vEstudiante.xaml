@@ -14,8 +14,10 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
+                            <Label Text="{Binding codigo}"/>
                             <Label Text="{Binding nombre}"/>
                             <Label Text="{Binding apellido}"/>
+                            <Label Text="{Binding edad}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
