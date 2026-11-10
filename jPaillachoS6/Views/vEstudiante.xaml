@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="jPaillachoS6.Views.vEstudiante"
+             Title="vEstudiante">
+    <VerticalStackLayout>
+        <Label 
+            Text="SEMANA 6: CRUD ESTUDIANTE"
+            VerticalOptions="Center"
+            FontSize="20"
+            HorizontalOptions="Center" />
+        <ListView x:Name="ListaEstudiantes">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding nombre}"/>
+                            <Label Text="{Binding apellido}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>
