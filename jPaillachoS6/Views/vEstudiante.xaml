@@ -1,31 +1,48 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="jPaillachoS6.Views.vEstudiante"
              Title="vEstudiante">
-    <VerticalStackLayout>
-        <Label 
-            Text="SEMANA 6: CRUD ESTUDIANTE"
-            VerticalOptions="Center"
-            FontSize="20"
-            HorizontalOptions="Center" />
-        <ListView x:Name="ListaEstudiantes">
+
+    <Grid Padding="12" RowDefinitions="Auto,*,Auto" RowSpacing="12">
+
+        <Label Grid.Row="0"
+               Text="SEMANA 6: CRUD ESTUDIANTE"
+               FontSize="20"
+               HorizontalOptions="Center" />
+
+        <ListView Grid.Row="1" 
+                  x:Name="ListaEstudiantes"
+                  ItemSelected="listaEstudiantes_ItemSelected">
+            <ListView.Header>
+                <Grid ColumnDefinitions="*,*,*,*"
+                      ColumnSpacing="8"
+                      Padding="8">
+                    <Label Grid.Column="0" Text="Código" FontAttributes="Bold" />
+                    <Label Grid.Column="1" Text="Nombre" FontAttributes="Bold" />
+                    <Label Grid.Column="2" Text="Apellido" FontAttributes="Bold" />
+                    <Label Grid.Column="3" Text="Edad" FontAttributes="Bold" />
+                </Grid>
+            </ListView.Header>
+
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding codigo}"/>
-                            <Label Text="{Binding nombre}"/>
-                            <Label Text="{Binding apellido}"/>
-                            <Label Text="{Binding edad}"/>
-                        </StackLayout>
+                        <Grid ColumnDefinitions="*,*,*,*"
+                              ColumnSpacing="8"
+                              Padding="8">
+                            <Label Grid.Column="0" Text="{Binding codigo}" />
+                            <Label Grid.Column="1" Text="{Binding nombre}" />
+                            <Label Grid.Column="2" Text="{Binding apellido}" />
+                            <Label Grid.Column="3" Text="{Binding edad}" />
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
-
             </ListView.ItemTemplate>
-
-
         </ListView>
+        <Button Grid.Row="2"
+            x:Name="btnAgregar"
+            Text="Agregar Estudiante"
+            Clicked="btnAgregar_Clicked" />
 
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

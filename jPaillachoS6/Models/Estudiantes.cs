@@ -4,7 +4,7 @@ using System.Text;
 
 namespace jPaillachoS6.Models
 {
-    internal class Estudiantes
+    public class Estudiantes
     {
         public int codigo {  get; set; }
         public string nombre { get; set; }
