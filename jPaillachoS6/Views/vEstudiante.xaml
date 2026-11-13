@@ -9,36 +9,74 @@
                Text="SEMANA 6: CRUD ESTUDIANTE"
                FontSize="20"
                HorizontalOptions="Center" />
+        <Border Grid.Row="1"
+        Stroke="#74688C"
+        StrokeThickness="1"
+        StrokeShape="RoundRectangle 14"
+        Padding="0"
+        BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#25232B}">
 
-        <ListView Grid.Row="1" 
-                  x:Name="ListaEstudiantes"
-                  ItemSelected="listaEstudiantes_ItemSelected">
-            <ListView.Header>
-                <Grid ColumnDefinitions="*,*,*,*"
-                      ColumnSpacing="8"
-                      Padding="8">
-                    <Label Grid.Column="0" Text="Código" FontAttributes="Bold" />
-                    <Label Grid.Column="1" Text="Nombre" FontAttributes="Bold" />
-                    <Label Grid.Column="2" Text="Apellido" FontAttributes="Bold" />
-                    <Label Grid.Column="3" Text="Edad" FontAttributes="Bold" />
+            <Grid RowDefinitions="Auto,*">
+
+                <!-- Encabezado -->
+                <Grid Grid.Row="0"
+              ColumnDefinitions="0.8*,1.4*,1.4*,0.7*"
+              ColumnSpacing="8"
+              Padding="14,12"
+              BackgroundColor="{AppThemeBinding Light=#EDE4FF, Dark=#483661}">
+
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="FontAttributes" Value="Bold" />
+                            <Setter Property="TextColor"
+                            Value="{AppThemeBinding Light=#35224F, Dark=#F5EDFF}" />
+                        </Style>
+                    </Grid.Resources>
+
+                    <Label Grid.Column="0" Text="Código" />
+                    <Label Grid.Column="1" Text="Nombre" />
+                    <Label Grid.Column="2" Text="Apellido" />
+                    <Label Grid.Column="3" Text="Edad" HorizontalTextAlignment="Center" />
                 </Grid>
-            </ListView.Header>
 
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid ColumnDefinitions="*,*,*,*"
+                <!-- Filas de estudiantes -->
+                <ListView Grid.Row="1"
+                  x:Name="ListaEstudiantes"
+                  ItemSelected="listaEstudiantes_ItemSelected"
+                  RowHeight="44"
+                  SeparatorVisibility="None"
+                  BackgroundColor="Transparent">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowDefinitions="*,1"
+                              ColumnDefinitions="0.8*,1.4*,1.4*,0.7*"
                               ColumnSpacing="8"
-                              Padding="8">
-                            <Label Grid.Column="0" Text="{Binding codigo}" />
-                            <Label Grid.Column="1" Text="{Binding nombre}" />
-                            <Label Grid.Column="2" Text="{Binding apellido}" />
-                            <Label Grid.Column="3" Text="{Binding edad}" />
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                              Padding="14,0">
+
+                                    <Label Grid.Column="0" Text="{Binding codigo}"
+                                   VerticalOptions="Center" />
+                                    <Label Grid.Column="1" Text="{Binding nombre}"
+                                   FontAttributes="Bold" VerticalOptions="Center" />
+                                    <Label Grid.Column="2" Text="{Binding apellido}"
+                                   VerticalOptions="Center" />
+                                    <Label Grid.Column="3" Text="{Binding edad}"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalOptions="Center" />
+
+                                    <BoxView Grid.Row="1" Grid.ColumnSpan="4"
+                                     Color="{AppThemeBinding Light=#EAE4F0, Dark=#3A3445}"
+                                     InputTransparent="True" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
+        </Border>
+        
         <Button Grid.Row="2"
             x:Name="btnAgregar"
             Text="Agregar Estudiante"
